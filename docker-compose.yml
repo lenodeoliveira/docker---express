@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  service_api:
+      container_name: api_service
+      image: node:16
+      working_dir:  /usr/src/study-docker-nodemon
+      restart: always
+      command: bash -c "npm install --only=prod && npm run debug"
+      volumes:
+      - ./src/:/usr/src/study-docker-nodemon/src/
+      - ./package.json:/usr/src/study-docker-nodemon/package.json
+      ports:
+      - "5050:5050"
+      
